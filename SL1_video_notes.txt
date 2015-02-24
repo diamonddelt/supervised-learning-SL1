@@ -55,4 +55,14 @@ Decision Trees
 			- What is the weather like?
 		- Output: Yes or No (of whether I go into the restaurant)
 		
+	A decision tree is composed of circular "nodes", which branch off into children nodes, based on the parent node's attributes/values. The lines connecting parent nodes to children nodes represent the "instance" data that influences either the corresponding leaf, or child node.
+	
+	A decision tree also has "leaves", which are represented by boxes, that represent an answer or "decision".
+	
+	The decision tree is used to represent a concrete path of attribute/value combinations that lead to a definite conclusion.
+	
+	For example, given a series of instance data, we can map these instances to their corresponding decision tree node or leaves, to arrive at the destination (class).
+	
+	
+		
 	
