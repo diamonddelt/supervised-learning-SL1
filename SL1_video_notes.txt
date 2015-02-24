@@ -63,6 +63,55 @@ Decision Trees
 	
 	For example, given a series of instance data, we can map these instances to their corresponding decision tree node or leaves, to arrive at the destination (class).
 	
+
+The question becomes: How can we make a machine learning problem use a decision tree? We need to somehow map the decision paths to the training set, so that we can pass in a testing set and test our candidate concept.
+
+We need to ask a series of questions that systematically "narrow the list of possibilities". Each question should continually narrow down the scope of the possible solution space until a very small, discrete list of values remain.
+
+For a Decision Tree to learn behavior, the following are important concepts in the algorithm design process:
+	1. Pick the best attribute (and define what "best" means in this context)
+	2. Ask a question about that attribute
+	3. Follow the answer path
 	
-		
 	
+Decision Trees: Expressiveness of Booleans (2 variables)
+
+	AND - both variables must result in TRUE to reach a decision
+	OR - only one variable must result in TRUE to reach a decision
+	XOR - either one or the other variable must result in TRUE, but NOT BOTH, to reach a decision
+	
+Exploring the size of decision trees
+	
+	n-OR (Any) - the size of this decision tree with n nodes is "n" or "linear"; for each n, there must be one node
+	n-XOR (Odd Parity) - the size of this decision tree with n nodes is "n^2" or "exponential"
+	
+	Parity problems in machine learning present challenges because they require much more data gathering in the form of questions in order to arrive at the correct answer.
+	
+	Truth Table of the number of decision trees needed for n attributes (boolean) and output (boolean):
+		- 2^n number of attribute nodes
+		- two choices at the output of each row of the truth table
+		- the output function would be 2^2^n, or a double-exponential function
+	
+	
+ID3 Algorithm
+	
+	Loop:
+		1. Assign A <- best attribute (determine what "best" means beforehand!)
+		2. Assign A as decision attribute for node
+		3. For each value of A, 
+			- Create a descendant node
+		4. Sort training set examples to leaves
+		5. IF examples are perfectly classified
+			- STOP
+		6. ELSE 
+			- Iterate over each leaf and pick the best attribute, and begin loop again
+			
+	At each loop iteration, we are refining our training set to better and better attributes, until are leaves are perfectly classified.
+	
+Information Gain Equation
+	
+	About: A mathematical equation that expresses the amount of information "gained" by picking a particular attribute among a list of possible labels. This function deals with entropy (the formula for inherit randomness). Essentially, this equation can be thought of as calculating the "reduction in randomness" over the list of possible labels.
+	
+	Entropy: The amount of "bits" of randomization. It is helpful to understand entropy in the context of flipping a coin. If we assume a coin being flipped is a fair 1/2 chance flip, the entropy of the flip is maximal, because a flip can maximally results in either of the two values. However, a double-sided coin would have no entropy, because there is no randomness in the result of a coinflip (either side of the coin will be the same side).
+	
+	So to summarize the information gain equation, it seeks to minimize entropy, because choosing from a set of values with the lowest entropy will result in the most consistent answer.
