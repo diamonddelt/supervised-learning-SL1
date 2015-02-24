@@ -1,0 +1,58 @@
+Supervised Learning - Lesson 1 Video Notes
+
+Classification
+
+	- The process of taking an input (x) and mapping it to a discrete label(s) (true/false)
+	- For example, trying to map a face to either a "male" or "female" gender
+	- The key take-away in classification is that for a given input, the output should result in a value that exists in a small, defined, discrete space of possible answer choices
+	
+
+Regression
+
+	- Given a bunch of points on a graph, where does one point "map" to on a linear model line or real number. 
+	- The key take-away in regression is that for a given input, the output should result in a value that exists in a continuous spectrum or range of possibilities that potentially extends indefinitely
+	
+
+Quiz 1: Define the types of supervised learning in the following examples
+
+1. Input -> Credit History; Output -> Should you lend money?
+	Classification (because the answer usually maps to true/false; it's a binary task)
+	
+2. Input -> A picture of a kid; Output -> High School, College, or Graduate Student?
+	Classification (because there is one and only one single, definitive answer based on the input, in a discrete set of possible values)
+
+3. Input -> A picture of a kid; Output -> Age?
+	Regression (because if you quantify age as a fractional value, then the possible age is literally infinite on the numeric scale for all possible real-number values. For example, we could classify two different people as either 3.15003 years old, vs 3.15230 years old)
+	
+
+Terms:
+
+	Instances: vectors of values/attributes (also known as sets of input) that define what the input space is. For example, instances could be pictures, specific credit score examples, air temperatures, etc.
+	
+	Concept: also known as the "function"; this maps the instances (input) to some type of output. "An idea that describes a set of things" - e.g. if you give me something, I can tell you something about it or what it is
+	
+	Target Concept: the function (answer) that we are trying to find in a typical machine learning problem. For example, the specific function that determines what the model of a car is given a picture.
+	
+	Hypothesis Class: the set or range of all possible functions that you are willing to consider that may be the "target concept"
+	
+	Sample: "A Training Set"; a set of all inputs paired with a CORRECT output label. For example, a training set could contain 100 possible pictures of men of varying heights, with an associated classification label of "Tall" or "Short", which the machine learning algorithm to be developed must assume is correct. In other words, you are explaining what the "target concept" is through examples.
+	
+	Candidate: A concept that you assert may be the "target concept"; you can think of a candidate as a function that you hypothesize is the target concept.
+	
+	Testing Set: a set of inputs that the "candidate" concept is applied to. The testing set is used to determine whether or not the candidate concept is in fact the target concept. The testing set SHOULD NOT BE THE SAME as the training set/sample.
+	
+
+Decision Trees
+
+	Example: Do I go into a restaurant with my date or not?
+		- Inputs: Features of the restaurant (Instances)
+			- Type of restaurant (Italian/French/Japanese/Thai)
+			- Atmosphere (Fancy/Hole-In-The-Wall/Casual)
+			- Price (Either discrete input, or numerical price)
+			- Hot Date?
+			- What day of the week is it?
+			- Am I hungry?
+			- What is the weather like?
+		- Output: Yes or No (of whether I go into the restaurant)
+		
+	
