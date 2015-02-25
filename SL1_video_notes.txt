@@ -115,3 +115,50 @@ Information Gain Equation
 	Entropy: The amount of "bits" of randomization. It is helpful to understand entropy in the context of flipping a coin. If we assume a coin being flipped is a fair 1/2 chance flip, the entropy of the flip is maximal, because a flip can maximally results in either of the two values. However, a double-sided coin would have no entropy, because there is no randomness in the result of a coinflip (either side of the coin will be the same side).
 	
 	So to summarize the information gain equation, it seeks to minimize entropy, because choosing from a set of values with the lowest entropy will result in the most consistent answer.
+	
+Bias
+
+	Restriction Bias - the hypothesis set that you are concerned with; in the decision tree example, this hypothesis set is all possible decision tree functions
+	
+	Preference Bias - explains what sorts of hypotheses we 'prefer' from the restriction bias hypothesis set
+	
+	Given two decision trees, the preference bias for ID3: 
+	- functions that provide good data splits at the top.
+	- functions that are correct over incorrect
+	- shorter trees
+	
+Decision Trees: Other Considerations
+
+	- Are there any continuous attributes? (for example, age, weight, distance, time)
+	- If so, add them as a node in the decision tree, which a range specified to determine a more approximate value:
+	
+		20 <= AGE <= 30
+
+QUIZ: Does it make sense to repeat attributes along a path in a decision tree?
+ANSWER: It does not make sense if the attribute is part of a discrete set, but it does make sense if the attribute is a continuous attribute (such as age in the earlier example). A parent node could ask if the age is between 20 and 50, and a few child nodes down the decision path, another node could ask if the age is between 20 and 22, to determine if the person is a college student.
+
+What happens when the ID3 decision tree algorithm runs into noise or a situation when the attributes have "noise"?
+
+	We must specify that there should not be any "overfitting" in the results. 
+	
+	"Overfitting means a statistical model describes random error or noise instead of the underlying relationship. This can occur when the concept is overly complex, such as having too many parameters relative to the number of observations" - Wikipedia
+	
+	"Cross Validation" is one way to avoid overfitting.
+	
+	Another way to avoid overfitting is to check the attribute against the validation set before expanding the decision tree.
+	
+	"Pruning" is another technique for reducing noise in a decision tree algorithm. This is usually concerned with "voting" on attributes to determine what gets pruned and what stays.
+	
+	Another consideration in decision tree algorithms is the concept of "regression", because measuring information gain on continuous values is impossible. Instead, regression problems are concerned about "splitting" continuous values, moreso than reducing entropy.
+	
+
+Summary of SL1 Video Notes:
+
+	- Representation
+	- ID3: A top down learning algorithm
+	- Expressiveness of Decision Trees
+	- Bias of ID3
+	- What are "best" attributes (Information Gain - GAIN(S, A))
+	- Dealing with overfitting
+	
+	
